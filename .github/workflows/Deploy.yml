@@ -34,7 +34,7 @@ jobs:
 
       - name: Build binary file
         run: |
-          CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -v -o release/linux/amd64/helloworld
+          CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -v -o ./MaJaJalist/MaJaJaserver
 
       - name: Publish to Registry
         uses: elgohr/Publish-Docker-Github-Action@2.11
@@ -43,6 +43,7 @@ jobs:
           username: wayne900619
           password: ${{ secrets.docker_password }}
           dockerfile: docker/Dockerfile
+          tag_names: true
 
       - name: Deploy to my server
         uses: appleboy/ssh-action@v0.0.6
@@ -52,6 +53,6 @@ jobs:
           password: ${{ secrets.ssh_password }}
           script_stop: true
           script: |
-            wget https://raw.githubusercontent.com/txya900619/testGithubActions/master/start.sh -O MaJaJalistDeploy.sh
+            wget https://raw.githubusercontent.com/NPC-GO/MaJaJalist-backend/master/MaJaJalistDeploy.sh -O MaJaJalistDeploy.sh
             sudo bash ./MaJaJalistDeploy.sh
             exit
