@@ -2,7 +2,8 @@ name: BuildDockerImageWhenTag
 on:
   push:
     tags:
-      - *
+      - alpha-*
+      - v*
 jobs:
   BuildDockerImage:
     name: BuildImage
