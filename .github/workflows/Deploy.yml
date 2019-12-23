@@ -39,7 +39,7 @@ jobs:
       - name: Publish to Registry
         uses: elgohr/Publish-Docker-Github-Action@2.11
         with:
-          name: wayne900619/MaJaJalist
+          name: wayne900619/majajalist
           username: wayne900619
           password: ${{ secrets.docker_password }}
           dockerfile: docker/Dockerfile
