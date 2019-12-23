@@ -1,0 +1,16 @@
+version: '3'
+services:
+  MaJaJaserver:
+    image: "wayne900619/MaJaJalist"
+    depends_on:
+      - database
+    ports:
+      - "80:80"
+      - "443:443"
+  database:
+    image: postgres
+    environment:
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: MaJaJalist
+    ports:
+      - "5432:5432"
