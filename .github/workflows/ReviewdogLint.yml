@@ -1,7 +1,11 @@
 name: ReviewDogLintAndBuildTest
-on: [pull_request]
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
 jobs:
-  golangci-lint:
+  golangci-lint/Codecov:
     name: runner / golangci-lint
     runs-on: ubuntu-latest
     steps:
@@ -13,3 +17,7 @@ jobs:
         # uses: docker://reviewdog/action-golangci-lint:v1 # pre-build docker image
         with:
           github_token: ${{ secrets.github_token }}
+      - name: Codecov
+        uses: codecov/codecov-action@v1.0.5
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
