@@ -17,6 +17,9 @@ jobs:
         # uses: docker://reviewdog/action-golangci-lint:v1 # pre-build docker image
         with:
           github_token: ${{ secrets.github_token }}
+      - name: Build Codecov File
+        run: |
+          go test -race -coverprofile=coverage.txt -covermode=atomic
       - name: Codecov
         uses: codecov/codecov-action@v1.0.5
         with:
