@@ -5,7 +5,7 @@ on:
   pull_request:
     branches: [master]
 jobs:
-  golangci-lint/Codecov:
+  golangci-lintAndCodecov:
     name: runner / golangci-lint
     runs-on: ubuntu-latest
     steps:
