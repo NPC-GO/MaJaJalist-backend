@@ -1,2 +1,2 @@
 schema:
-  - user.graphql
+  - graphql/schema/*.graphql
