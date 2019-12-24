@@ -28,10 +28,6 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-go-
 
-      - name: GoTest
-        run: |
-          make test -v .
-
       - name: Build binary file
         run: |
           CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -v -o ./MaJaJalist/MaJaJaserver
