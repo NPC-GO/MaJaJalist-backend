@@ -7,7 +7,7 @@ import (
 	"log"
 )
 
-func Migration() {
+func migration() {
 	m, err := migrate.New(
 		"file://home/MaJaJalist/migrations",
 		"postgres://postgres:postgres@database:5432/MaJaJalist?sslmode=disable")
