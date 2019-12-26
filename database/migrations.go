@@ -15,6 +15,13 @@ func migration() {
 		log.Fatal(err)
 	}
 	if err := m.Up(); err != nil {
-		log.Fatal(err)
+		err := m.Down()
+		if err != nil {
+			log.Fatal(err)
+		}
+		err = m.Up()
+		if err != nil {
+			log.Fatal(err)
+		}
 	}
 }
