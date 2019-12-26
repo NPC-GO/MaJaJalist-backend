@@ -1,0 +1,14 @@
+schema {
+    mutation: MyMutation
+    query: MyQuery
+}
+input LoginInput{
+    usernameOrEmail:String!
+    passWord:String!
+}
+type MyMutation{
+    Login(input:LoginInput):Boolean!
+}
+type MyQuery{
+    MyPageConfig:String!
+}

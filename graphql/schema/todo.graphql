@@ -1,0 +1,29 @@
+type Todo{
+    id:ID!
+    textContent:String!
+    status:TodoStatus!
+    author:User!
+}
+type TodoStatus{
+    complete:Boolean!
+    deleted:Boolean!
+    readonly:Boolean!
+}
+input CreateTodoInput{
+    textContent:String!
+    status:CreateTodoInputStatus
+}
+input CreateTodoInputStatus{
+    complete:Boolean
+    deleted:Boolean
+    readonly:Boolean
+}
+extend type MyQuery{
+    TodobyUserID(id:ID!):[Todo!]
+}
+extend type MyMutation{
+    DeleteTodo(ids:[ID!]!):[ID!]
+    ChangeTextInTodo(id:ID!):String!
+    CompleteTodo(ids:[ID!]!):[ID!]
+    CreateTodo(input:CreateTodoInput):Todo!
+}
