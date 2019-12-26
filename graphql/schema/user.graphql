@@ -1,4 +1,26 @@
 type User{
     id:ID!
-    email: String!
+    email:Email!
+    userName:String!
+    avatar:String!
+    userLevel:Level!
+    special:Boolean!
+    todos:[Todo!]
 }
+input CreateUserInput{
+    email:Email!
+    userName:String!
+    passWord:String!
+}
+extend type MyQuery{
+    MyUserData:User!
+}
+extend type MyMutation{
+    CreateUser(input:CreateUserInput!):User!
+}
+enum Level{
+    Admin
+    User
+    Restricted
+}
+scalar Email
