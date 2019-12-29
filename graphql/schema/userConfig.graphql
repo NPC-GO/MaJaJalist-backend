@@ -1,0 +1,8 @@
+extend type MyQuery {
+    AvailableUserConfig:[String!]
+}
+extend type MyMutation {
+    ChangeMyUserConfigValue(input:[ConfigInput!]!):[Config!]
+    AddAvailableUserConfig(key:[String!]!):[String!]
+    DeleteAvailableUserConfig(key:[String!]!):[String!]
+}

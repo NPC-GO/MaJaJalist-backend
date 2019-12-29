@@ -2,10 +2,17 @@ type Todo{
     id:ID!
     textContent:String!
     status:TodoStatus!
-    author:User!
+    author:TodoAuthorLayout!
+    todoConfig:[TodoConfig!]
+}
+type TodoAuthorLayout{
+    id:ID!
+    nickName:String!
+    avatar:String!
+    special:Boolean!
 }
 type TodoStatus{
-    complete:Boolean!
+    completed:Boolean!
     deleted:Boolean!
     readonly:Boolean!
 }
