@@ -18,5 +18,4 @@ input LoginInput{
 type MyMutation{
     Login(input:LoginInput):Boolean!
 }
-type MyQuery{
-}
+type MyQuery

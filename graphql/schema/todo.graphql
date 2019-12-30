@@ -23,7 +23,6 @@ input CreateTodoInput{
 input CreateTodoInputStatus{
     complete:Boolean
     deleted:Boolean
-    readonly:Boolean
 }
 extend type MyQuery{
     TodobyUserID(id:ID!):[Todo!]

@@ -1,2 +1,49 @@
 schema:
   - graphql/schema/*.graphql
+
+exec:
+  filename: graphql/generated.go
+  package: graphql
+
+resolver:
+  filename: graphql/resolver.go
+  package: graphql
+
+model:
+  filename: model/model_gqlgen.go
+  package: model
+
+models:
+  User:
+    model: github.com/NPC-GO/MaJaJalist-backend/model.User
+    fields:
+      todos:
+        resolver: true
+      userConfig:
+        resolver: true
+  Todo:
+    model: github.com/NPC-GO/MaJaJalist-backend/model.Todo
+    fields:
+      author:
+        resolver: true
+      status:
+        resolver: true
+      todoConfig:
+        resolver: true
+  CreateUserInput:
+    model: github.com/NPC-GO/MaJaJalist-backend/model.CreateUserInput
+  TodoStatus:
+    model: github.com/NPC-GO/MaJaJalist-backend/model.TodoStatus
+    fields:
+      readonly:
+        resolver: true
+  CreateTodoInput:
+    model: github.com/NPC-GO/MaJaJalist-backend/model.CreateTodoInput
+  CreateTodoInputStatus:
+    model: github.com/NPC-GO/MaJaJalist-backend/model.CreateTodoInputStatus
+  TodoConfig:
+    model: github.com/NPC-GO/MaJaJalist-backend/model.TodoConfig
+  ChangeTodoConfigValueInput:
+    model: github.com/NPC-GO/MaJaJalist-backend/model.ChangeTodoConfigValueInput
+
+

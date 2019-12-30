@@ -6,7 +6,7 @@ input ChangeTodoConfigValueInput{
     todoID:ID!
     config:[ConfigInput!]
 }
-extend type TodoConfig {
+extend type MyQuery {
     AvailableTodoConfig:[String!]
 }
 extend type MyMutation {
