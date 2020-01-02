@@ -4,4 +4,4 @@ EXPOSE 80 443
 COPY ./MaJaJalist/MaJaJaserver /home/MaJaJalist/
 COPY ./database/migrations/* /home/MaJaJalist/migrations/
 WORKDIR /home/MaJaJalist
-ENTRYPOINT ["MaJaJaserver"]
+ENTRYPOINT ["./MaJaJaserver"]
