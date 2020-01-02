@@ -12,7 +12,7 @@ func main() {
 		User:     "postgres",
 		Password: "postgres",
 		Database: "MaJaJalist",
-		Network:  "database:5432",
+		Addr:     "database:5432",
 	})
 	defer DB.Close()
 	server := router.InitRouter()

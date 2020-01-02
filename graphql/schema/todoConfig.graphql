@@ -1,0 +1,16 @@
+type TodoConfig{
+    todoID:ID!
+    config:[Config!]
+}
+input ChangeTodoConfigValueInput{
+    todoID:ID!
+    config:[ConfigInput!]
+}
+extend type MyQuery {
+    AvailableTodoConfig:[String!]
+}
+extend type MyMutation {
+    ChangeTodoConfigValue(todoConfig:ChangeTodoConfigValueInput!):[TodoConfig!]
+    AddAvailableTodoConfig(key:[String!]!):[String!]
+    DeleteAvailableTodoConfig(key:[String!]!):[String!]
+}

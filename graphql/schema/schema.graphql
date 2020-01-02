@@ -2,13 +2,20 @@ schema {
     mutation: MyMutation
     query: MyQuery
 }
+type Config{
+    key:String!
+    value:String!
+}
+input ConfigInput{
+    key:String!
+    value:String!
+}
 input LoginInput{
     usernameOrEmail:String!
     passWord:String!
+    recaptchaToken:String!
 }
 type MyMutation{
     Login(input:LoginInput):Boolean!
 }
-type MyQuery{
-    MyPageConfig:String!
-}
+type MyQuery

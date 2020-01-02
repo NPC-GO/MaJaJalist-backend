@@ -1,22 +1,28 @@
 type User{
     id:ID!
     email:Email!
-    userName:String!
+    nickName:String!
     avatar:String!
     userLevel:Level!
     special:Boolean!
     todos:[Todo!]
+    emailVerified:Boolean!
+    userConfig:[Config!]
 }
 input CreateUserInput{
-    email:Email!
-    userName:String!
-    passWord:String!
+    email:String!
+    id:String!
+    nickName:String!
+    password:String!
 }
 extend type MyQuery{
     MyUserData:User!
+    MyUserConfig:[Config!]
 }
-extend type MyMutation{
-    CreateUser(input:CreateUserInput!):User!
+extend type MyMutation {
+    CreateUser(input:CreateUserInput):User!
+    CheckIDAvailability(id:ID!):Boolean!
+
 }
 enum Level{
     Admin
