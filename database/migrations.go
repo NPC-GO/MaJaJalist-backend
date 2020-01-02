@@ -9,7 +9,7 @@ import (
 
 func migration() {
 	m, err := migrate.New(
-		"file://home/MaJaJalist/migrations",
+		"file://migrations",
 		"postgres://postgres:postgres@database:5432/MaJaJalist?sslmode=disable")
 	if err != nil {
 		log.Fatal(err)
