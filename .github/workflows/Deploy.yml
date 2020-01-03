@@ -44,17 +44,17 @@ jobs:
       - name: Deploy to my server
         uses: appleboy/ssh-action@v0.0.7
         env:
-          cert: ${{secrets.https_cert}}
-          key: ${{secrets.https_key}}
+          CERT: ${{secrets.https_cert}}
+          KEY: ${{secrets.https_key}}
         with:
           host: ${{ secrets.ssh_host }}
           username: server
           password: ${{ secrets.ssh_password }}
-          envs: cert,key
+          envs: CERT,KEY
           script_stop: true
           script: |
             wget https://raw.githubusercontent.com/NPC-GO/MaJaJalist-backend/master/MaJaJalistDeploy.sh -O MaJaJalistDeploy.sh
-            echo "$cert" > ./MaJaJalist/certs/server.crt
-            echo "$key" > ./MaJaJalist/certs/server.key
+            echo "$CERT" > ./MaJaJalist/certs/server.crt
+            echo "$KEY" > ./MaJaJalist/certs/server.key
             sudo bash ./MaJaJalistDeploy.sh
             exit
