@@ -4,6 +4,12 @@ if [ -s ./MaJaJalist ]
   else
     mkdir MaJaJalist && cd MaJaJalist
   fi
+if [ -s ./certs ]
+  then
+    echo "certs folder exist"
+  else
+    mkdir certs
+  fi
 if [ -x "$(command -v docker)" ]
   then
     echo "docker installed"

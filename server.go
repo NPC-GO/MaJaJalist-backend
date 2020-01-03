@@ -16,5 +16,8 @@ func main() {
 	})
 	defer DB.Close()
 	server := router.InitRouter()
-	http.ListenAndServe(":80", server)
+	err := http.ListenAndServeTLS(":443", "./certs/server.crt", "./certs/server.key", server)
+	if err != nil {
+		http.ListenAndServe(":80", server)
+	}
 }
