@@ -16,7 +16,8 @@ func main() {
 		Addr:     "database:5432",
 	}) //連接到database
 	defer DB.Close() //在最後斷開連接
-	server := router.InitRouter(DB)
+	userDatabaseCtrl := database.User{DB: DB}
+	server := router.InitRouter(userDatabaseCtrl)
 	err := http.ListenAndServeTLS(":443", "./certs/server.crt", "./certs/server.key", server)
 	if err != nil {
 		fmt.Println(err)
