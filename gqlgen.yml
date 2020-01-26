@@ -45,5 +45,7 @@ models:
     model: github.com/NPC-GO/MaJaJalist-backend/model.TodoConfig
   ChangeTodoConfigValueInput:
     model: github.com/NPC-GO/MaJaJalist-backend/model.ChangeTodoConfigValueInput
+  TodoAuthorLayout:
+    model: github.com/NPC-GO/MaJaJalist-backend/model.TodoAuthorLayout
 
 

@@ -16,7 +16,7 @@ func main() {
 		Addr:     "database:5432",
 	})
 	defer DB.Close()
-	server := router.InitRouter()
+	server := router.InitRouter(DB)
 	err := http.ListenAndServeTLS(":443", "./certs/server.crt", "./certs/server.key", server)
 	if err != nil {
 		fmt.Println(err)
