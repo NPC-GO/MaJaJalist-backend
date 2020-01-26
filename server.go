@@ -14,12 +14,12 @@ func main() {
 		Password: "postgres",
 		Database: "MaJaJalist",
 		Addr:     "database:5432",
-	})
-	defer DB.Close()
+	}) //連接到database
+	defer DB.Close() //在最後斷開連接
 	server := router.InitRouter(DB)
 	err := http.ListenAndServeTLS(":443", "./certs/server.crt", "./certs/server.key", server)
 	if err != nil {
 		fmt.Println(err)
-		http.ListenAndServe(":80", server)
+		http.ListenAndServe(":80", server) //無法使用https則用http
 	}
 }

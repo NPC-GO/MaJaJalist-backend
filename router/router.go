@@ -17,6 +17,7 @@ func InitRouter(db *pg.DB) chi.Router {
 		chiMiddleware.Recoverer,
 	)
 	router.With(middleware.BeforeLoginAuth(database.User{DB: db})).Post("/login", handler.Login(database.User{DB: db}))
+	//用middleware擋住已經登錄的
 	router.Get("/*", http.StripPrefix("/", http.FileServer(http.Dir("dist"))).ServeHTTP)
 	router.Get("/", handler.HtmlHandler)
 	return router

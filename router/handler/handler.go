@@ -12,4 +12,4 @@ func Login(user database.User) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 
 	}
-}
+} //post /login 的handler
