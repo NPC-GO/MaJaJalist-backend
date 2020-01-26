@@ -11,9 +11,13 @@ func BeforeLoginAuth(user database.User) func(http.Handler) http.Handler {
 			session, err := r.Cookie("session")
 			if err == nil {
 				if _, err := user.GetUserByToken(session.Value); err == nil {
-					http.Redirect(w, r, "https://"+r.URL.Host, 302)
+					if r.Method == http.MethodGet {
+						http.Redirect(w, r, "https://"+r.URL.Host, 302)
+						return
+					}
+					http.Error(w, "you has login", 403)
+					return
 				}
-				http.SetCookie(w, &http.Cookie{Name: "session", MaxAge: -1})
 			}
 			next.ServeHTTP(w, r)
 		})
