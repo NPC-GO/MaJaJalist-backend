@@ -15,5 +15,9 @@ func InitRouter() chi.Router {
 	)
 	router.Get("/*", http.StripPrefix("/", http.FileServer(http.Dir("dist"))).ServeHTTP)
 	router.Get("/", handler.HtmlHandler)
+	router.Get("/unfinished", handler.HtmlHandler)
+	router.Get("/finished", handler.HtmlHandler)
+	router.Get("/trashcan", handler.HtmlHandler)
+	router.Get("settings", handler.HtmlHandler)
 	return router
 }
