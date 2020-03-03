@@ -19,5 +19,6 @@ func InitRouter() chi.Router {
 	router.Get("/finished", handler.HtmlHandler)
 	router.Get("/trashcan", handler.HtmlHandler)
 	router.Get("/settings", handler.HtmlHandler)
+	router.Get("/login", handler.HtmlHandler)
 	return router
 }
