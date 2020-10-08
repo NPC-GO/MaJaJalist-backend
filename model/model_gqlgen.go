@@ -24,13 +24,6 @@ type LoginInput struct {
 	RecaptchaToken  string `json:"recaptchaToken"`
 }
 
-type TodoAuthorLayout struct {
-	ID       string `json:"id"`
-	NickName string `json:"nickName"`
-	Avatar   string `json:"avatar"`
-	Special  bool   `json:"special"`
-}
-
 type Level string
 
 const (
